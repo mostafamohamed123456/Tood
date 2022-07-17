@@ -1,0 +1,161 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+body{
+    background:rgb(10, 161, 226);
+}
+nav .navBar-list{
+    list-style-type:none;
+    text-align:center;
+    padding:5px;
+}
+nav .navBar-list li{
+    display:inline-block;
+    margin: 8px;
+}
+nav .navBar-list li .responsive-btn{
+    color: #EEE;
+    text-align: right;
+    position: absolute;
+    right: 17px;
+    top: 9px;
+    display: none;
+}
+nav .navBar-list li a{
+    color:#EEE;
+    text-decoration:none;
+    font-size:20px;
+    font-family:Arial, sans-serif;
+    text-transform:capitalize;
+}
+nav .navBar-list li a .fas{
+    padding:5px 5px 0 0;
+    font-size:15px;
+}
+
+.parent-section{
+    max-width: 100%;
+    text-align:center;
+    margin: 80px auto;
+    padding:5px;
+}
+.parent-section > div{
+    display:inline-block;
+    width:calc(100%/4);
+}
+.child-no-1{
+    float: left;
+}
+.child-no-3{
+    float: right;
+}
+
+.child-no-1, 
+.child-no-2, 
+.child-no-3{
+    text-align:center;
+    background:#EEE;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    overflow: hidden;
+}
+.child-no-1 .courses-header, 
+.child-no-2 .applications-header, 
+.child-no-3 .contact-header{
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    border:0px;
+    background:#222;
+    padding:7px;
+    font-size:19px;
+    color:#EEE;
+    font-family: Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+.child-no-1 .courses-items, 
+.child-no-2 .applications-listItem,
+.child-no-3 .contact-items{
+    list-style-type:none;
+}
+.child-no-1 .courses-items li, 
+.child-no-2 .applications-listItem li,
+.child-no-3 .contact-items li{
+    background:#EEE;
+    border:0px;
+    outline:none;
+    color:#222;
+    font-size:17px;
+    text-transform:uppercase;
+    font-family:cursive;
+    letter-spacing:2px;
+    cursor:pointer;
+    margin:5% 0 10% 0;
+    padding:10px;
+    transition:.2s all linear;
+}
+.child-no-1 .courses-items li:hover, 
+.child-no-2 .applications-listItem li:hover,
+.child-no-3 .contact-items li:hover{
+    background:#222;
+    color:#EEE;
+}
+
+.user-country-weather{
+    position: absolute;
+    top: 86px;
+    left: 62px;
+    text-transform: capitalize;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #FFF;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+.user-country-time-date{
+    position: absolute;
+    top: 86px;
+    right: 30px;
+    text-transform: capitalize;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #FFF;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+.courses-section{
+    width: 100%;
+    height: 100%;
+    background:#222222f0;
+    position: absolute;
+    top: -150%;
+    transition: .2s all linear;
+    right: 0;
+    text-align: center;
+    padding: 91px 0 0 0;
+}
+.courses-section > div{
+    width: calc(100%/6);
+    display:inline-block;
+    padding: 37px;
+}
+.courses-section div header{
+    color: #A1FFBD;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+    text-decoration: underline;
+    font-family: Arial, san-serif;
+    transition: .2s all linear;
+    cursor: pointer;
+}
+.courses-section .close-course-section{
+    color:#EEE;
+    position:absolute;
+    top: 15px;
+    font-size:30px;
+    font-family:Arial, sans-serif;
+    cursor:pointer;
+}
