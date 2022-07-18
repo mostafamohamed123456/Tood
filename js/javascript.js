@@ -48,8 +48,29 @@ let coursesSection = document.querySelector(".courses-section");
 let closeCourseSection = document.querySelector(".close-course-section");
 
 coursesBtn.addEventListener("click",()=>{
-    coursesSection.style.top = "0px"
+    
+    coursesSection.style.display = "block";
+    setTimeout(()=>{
+        coursesSection.style.top = "0px";
+    },70)
 })
 closeCourseSection.addEventListener("click",()=>{
-    coursesSection.style.top = "-150%"
-})
+    coursesSection.style.top = "-160%";
+    setTimeout(()=>{
+        coursesSection.style.display = "none";
+    },1000)
+    
+});
+
+let htmlCourses = ["intro to html","body tag","head tag","meta tag","title tag","link tag","style tag","script tag","comment","header tag","heading tag","paragraph tag","div tag","anchors tag","semantic tag","table tag","lists tag","multimedia tag","form tag","global attributes","contenteditable"];
+let htmlCoursesList = document.querySelector(".html-items");
+for(let i = 0; i < htmlCourses.length; i++){
+    let htmlCoursesItems = document.createElement("li");
+    htmlCoursesItems.classList.add("html-course-items");
+    htmlCoursesList.appendChild(htmlCoursesItems);
+    let htmlCourseItems = document.querySelectorAll(".html-items li");
+    htmlCourseItems.forEach((courseItem,index)=>{
+        courseItem.innerHTML = htmlCourses[index].toUpperCase();
+        courseItem.style.cssText = "position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
+    })
+}
