@@ -234,13 +234,16 @@ nav .navBar-list li a .fas{
         margin-left: auto;
         margin-right: auto;
         transform: translate(-6%,-50%);
+        font-size: 18px;
     }
     .user-country-time-date{
         display: block;
         position: absolute;
-        margin-top: 51px;
+        margin-top: 63px;
         margin-left: auto;
         margin-right: auto;
-        transform: translate(8%,-50%);
+        transform: translate(3%,-50%);
+        font-size: 14px;
+        font-weight:bold;
     }
 }
