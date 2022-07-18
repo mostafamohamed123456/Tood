@@ -62,7 +62,51 @@ closeCourseSection.addEventListener("click",()=>{
     
 });
 
-let htmlCourses = ["intro to html","body tag","head tag","meta tag","title tag","link tag","style tag","script tag","comment","header tag","heading tag","paragraph tag","div tag","anchors tag","semantic tag","table tag","lists tag","multimedia tag","form tag","global attributes","contenteditable"];
+let htmlCourses = [
+    "intro to html",
+    "body tag",
+    "head tag",
+    "meta tag",
+    "title tag",
+    "link tag",
+    "style tag",
+    "script tag",
+    "comment",
+    "header tag",
+    "heading tag",
+    "paragraph tag",
+    "div tag",
+    "anchors tag",
+    "semantic tag",
+    "table tag",
+    "lists tag",
+    "multimedia tag",
+    "form tag",
+    "global attributes",
+    "contenteditable"
+];
+let cssCourses = [
+    "intro to css",
+    "font-size",
+    "font-weight",
+    "font-style",
+    "font-family",
+    "text-transform",
+    "letter-spacing",
+    "color",
+    "background-color",
+    "background-image",
+    "background-repeat",
+    "background-position",
+    "background-size",
+    "background-attachment",
+    "background-clip",
+    "background-origin",
+    "margin",
+    "padding",
+    "height",
+    "width"
+];
 let htmlCoursesList = document.querySelector(".html-items");
 for(let i = 0; i < htmlCourses.length; i++){
     let htmlCoursesItems = document.createElement("li");
@@ -71,6 +115,17 @@ for(let i = 0; i < htmlCourses.length; i++){
     let htmlCourseItems = document.querySelectorAll(".html-items li");
     htmlCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = htmlCourses[index].toUpperCase();
+        courseItem.style.cssText = "position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
+    })
+}
+let cssCoursesList = document.querySelector(".css-items");
+for(let i = 0; i < cssCourses.length; i++){
+    let cssCoursesItems = document.createElement("li");
+    cssCoursesItems.classList.add("css-course-items");
+    cssCoursesList.appendChild(cssCoursesItems);
+    let cssCourseItems = document.querySelectorAll(".css-items li");
+    cssCourseItems.forEach((courseItem,index)=>{
+        courseItem.innerHTML = cssCourses[index].toUpperCase();
         courseItem.style.cssText = "position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
     })
 }
