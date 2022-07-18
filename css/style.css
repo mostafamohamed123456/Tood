@@ -246,4 +246,7 @@ nav .navBar-list li a .fas{
         font-size: 14px;
         font-weight:bold;
     }
+    .html-course-items::after {
+        left: 60px;
+    }
 }
