@@ -115,7 +115,7 @@ for(let i = 0; i < htmlCourses.length; i++){
     let htmlCourseItems = document.querySelectorAll(".html-items li");
     htmlCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = htmlCourses[index].toUpperCase();
-        courseItem.style.cssText = "position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
     })
 }
 let cssCoursesList = document.querySelector(".css-items");
@@ -126,6 +126,38 @@ for(let i = 0; i < cssCourses.length; i++){
     let cssCourseItems = document.querySelectorAll(".css-items li");
     cssCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = cssCourses[index].toUpperCase();
-        courseItem.style.cssText = "position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
     })
 }
+let signUpBtn = document.querySelector(".sign-up-btn")
+let signUpForm = document.querySelector(".sign-up-form")
+let signInBtn = document.querySelector(".sign-in-btn")
+let signInForm = document.querySelector(".sign-in-form")
+
+signUpBtn.onclick = function(){
+    signUpForm.classList.remove("hide-forms")
+    if(!signInForm.classList.contains("hide-forms")){
+        signInForm.classList.add("hide-forms")
+    }
+}
+signInBtn.onclick = function(){
+    signInForm.classList.remove("hide-forms")
+    if(!signUpForm.classList.contains("hide-forms")){
+        signUpForm.classList.add("hide-forms")
+    }
+}
+let navigatorBtns = document.querySelectorAll(".navBar-list li a");
+let contactSection = document.querySelector(".contact-section");
+window.addEventListener("scroll",()=>{
+    if(document.documentElement.scrollTop >= parseInt((contactSection.offsetTop - document.documentElement.scrollTop))){
+        console.log("reached");
+    }else{
+        console.log("not reached")
+    }
+})
+console.log(window.scrollY)
+console.log(contactSection.children[0].childNodes)
+// var color = window.getComputedStyle(
+// 	document.querySelector('.contact-section').children[0], ':after'
+// ).getPropertyValue('transform');
+// console.log(color)
