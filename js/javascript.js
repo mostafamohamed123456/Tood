@@ -146,18 +146,108 @@ signInBtn.onclick = function(){
         signUpForm.classList.add("hide-forms")
     }
 }
+
 let navigatorBtns = document.querySelectorAll(".navBar-list li a");
-let contactSection = document.querySelector(".contact-section");
-window.addEventListener("scroll",()=>{
-    if(document.documentElement.scrollTop >= parseInt((contactSection.offsetTop - document.documentElement.scrollTop))){
-        console.log("reached");
+for(let h = 0; h < navigatorBtns.length; h++){
+    navigatorBtns[h].addEventListener("click",(e)=>{
+        e.preventDefault();
+    })
+}
+
+//searchSection
+let searchSection = document.createElement("div");
+let searchBar = document.createElement("input");
+let searchBtn = document.createElement("button");
+let searchSectionClose = document.createElement("span");
+let showSearchResult = document.createElement("div");
+let searchBoxResultList = document.createElement("ul");
+let searchBoxResultListItem = document.createElement("li");
+
+navigatorBtns[3].onclick = ()=>{
+    searchBar.setAttribute("type","search");
+    searchBar.setAttribute("placeholder","search in lessons");
+
+    searchBtn.innerHTML = "search <i class='fas fa-search'></i>";
+    searchSectionClose.innerHTML = "<i class='fas fa-window-close'></i>";
+
+    searchSection.style.cssText = "overflow:auto;display:inline-block;text-align:center;position:fixed;z-index:3;background:#222222fc;left:0px;top:0px;height:98%;width:100%";
+    searchBar.style.cssText = "display:inline-block;margin:60px auto;width:470px;border-radius:2px;border:0px;padding:7px;outline:none;font-size: 19px;text-transform:uppercase";
+    searchBtn.style.cssText="background:rgb(10, 161, 226);color:#FFF;display:inline-block;margin:60px 10px;cursor:pointer;width:200px;border-radius:2px;border:0px;padding:7px;outline:none;font-size: 19px;text-transform:uppercase";
+    searchSectionClose.style.cssText = "position:absolute;top:15px;right:30px;color:#EEE;font-size:30px;background:#222;cursor:pointer;";
+
+    
+
+    searchBtn.addEventListener("click",()=>{
+        searchSection.remove();
+    
+        let newWord = new RegExp(searchBar.value, "i");
+        if(searchBar.value !== ""){
+            let arr = [];
+            for(let r = 0; r < document.body.children.length; r++){
+                arr.push(document.body.children[r])
+            }
+            let arr2 = [];
+    
+            arr.forEach((eachItem)=>{
+                for(let y =0; y < eachItem.children.length; y++){
+                    arr2.push(eachItem.children[y])
+                }
+            })
+            arr2.forEach((item)=>{
+                if(item.textContent.split(0).join(" ").search(newWord) !== -1){
+                    item.style.background = "yellow"
+                    item.style.color = "#FF0";
+                    showSearchResult.style.cssText = "background:#EEE;color:#FF0"
+                    showSearchResult.textContent = item.innerHTML;  
+                }
+                for(let y = 0; y < item.children.length; y++){
+                    if(item.children[y].textContent.split(0).join(" ").search(newWord) !== -1){
+                        item.children[y].style.background = "yellow"
+                        item.children[y].style.color = "#0FF";
+                        showSearchResult.style.cssText = "background:#EEE;color:#0FF;"
+                        showSearchResult.textContent = item.children[y].innerHTML
+                    }
+                    for(let x = 0; x < item.children[y].children.length; x++){
+                        if(item.children[y].children[x].textContent.search(newWord) !== -1){
+                            item.children[y].children[x].style.background = "yellow"
+                            item.children[y].children[x].style.color = "#F0F";
+                            showSearchResult.style.cssText = "background:#EEE;color:#F0F;"
+                            showSearchResult.textContent = item.children[y].children[x].innerHTML
+                        }
+                    }
+                }
+            });
+        }else{
+            return;
+        }
+        
+    });
+    searchSectionClose.addEventListener("click",()=>{
+        searchSection.remove();
+    });
+    document.body.appendChild(searchSection);
+    searchSection.appendChild(searchBar);
+    searchSection.appendChild(searchBtn);
+    searchSection.appendChild(searchSectionClose);
+    showSearchResult.appendChild(searchBoxResultList);
+    searchBoxResultList.appendChild(searchBoxResultListItem);
+    searchSection.appendChild(showSearchResult);
+    searchBar.focus();
+}
+
+
+
+
+
+
+let contactHeader = document.querySelector(".contact-section header");
+let afterSelector = window.getComputedStyle(contactHeader, "::after");
+let properValues = afterSelector.getPropertyValue("transform") 
+
+window.onscroll = ()=>{
+    if(document.documentElement.scrollTop >= (contactHeader.offsetTop - document.documentElement.scrollTop)){
+        contactHeader.style.setProperty("--scaleSize","1")
     }else{
-        console.log("not reached")
+        contactHeader.style.setProperty("--scaleSize","0")
     }
-})
-console.log(window.scrollY)
-console.log(contactSection.children[0].childNodes)
-// var color = window.getComputedStyle(
-// 	document.querySelector('.contact-section').children[0], ':after'
-// ).getPropertyValue('transform');
-// console.log(color)
+}

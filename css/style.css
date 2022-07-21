@@ -9,6 +9,10 @@ html{
 body{
     background:rgb(10, 161, 226);
 }
+:root{
+    --scaleSize : 0;
+}
+
 nav .navBar-list{
     list-style-type:none;
     text-align:center;
@@ -17,7 +21,12 @@ nav .navBar-list{
 nav .navBar-list li{
     display:inline-block;
     margin: 8px;
+    position: relative;;
 }
+nav .navBar-list li:last-of-type{
+    position: unset;;
+}
+
 nav .navBar-list li .responsive-btn{
     color: #EEE;
     text-align: right;
@@ -33,11 +42,29 @@ nav .navBar-list li a{
     font-family:Arial, sans-serif;
     text-transform:capitalize;
 }
+nav .navBar-list li::after{
+    content: "";
+    position: absolute;
+    background: #EEE;
+    width: 100%;
+    height: 3px;
+    border-radius:30%;
+    box-shadow: 1px 1px 1px #EEE;
+    margin-right: 4px;
+    padding-right: 4px;
+    bottom: 0;
+    justify-content: center;
+    display: flex;
+    transition:all .2s linear;
+    transform:scale(var(--scaleSize))
+}
 nav .navBar-list li a .fas{
     padding:5px 5px 0 0;
     font-size:15px;
 }
-
+nav .navBar-list li:hover::after{
+    transform:scale(1)
+}
 .parent-section{
     max-width: 100%;
     text-align:center;
@@ -133,21 +160,25 @@ nav .navBar-list li a .fas{
 }
 .courses-section{
     width: 100%;
-    min-height: 100%;
+    height: 90%;
     background:#222222fc;
-    position: absolute;
+    position: fixed;
     top: -150%;
     transition: .2s all linear;
     right: 0;
     text-align: center;
     padding: 91px 0 0 0;
-    display: none;;
+    display: none;
+    overflow: scroll;
+    z-index: 5;
 }
 .courses-section > div{
     width: calc(100%/6);
     display:inline-flex;
     padding: 37px;
-    flex-direction:column
+    flex-direction:column;
+    z-index: 3000;
+    position: relative;
 }
 .courses-section div header{
     color: #A1FFBD;
@@ -227,9 +258,8 @@ nav .navBar-list li a .fas{
     background: #222;
     position: absolute;
     bottom: 0px;
-    transform: translate(-202%, 0);
     transition: all .2s linear;
-    transform: scale(0);
+    transform: translate(-202%, 0) scale(var(--scaleSize));
 }
 .contact-section .contact-items{
     width:300px;
