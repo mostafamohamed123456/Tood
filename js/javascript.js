@@ -221,6 +221,7 @@ navigatorBtns[3].onclick = ()=>{
                 }
             });
             console.log(arr3.length);
+            console.log(arr3)
         }else{
             return;
         }
