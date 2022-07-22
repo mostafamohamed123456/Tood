@@ -187,7 +187,7 @@ navigatorBtns[3].onclick = ()=>{
                 arr.push(document.body.children[r])
             }
             let arr2 = [];
-    
+            let arr3 = [];
             arr.forEach((eachItem)=>{
                 for(let y =0; y < eachItem.children.length; y++){
                     arr2.push(eachItem.children[y])
@@ -199,24 +199,28 @@ navigatorBtns[3].onclick = ()=>{
                     item.style.color = "#FF0";
                     showSearchResult.style.cssText = "background:#EEE;color:#FF0"
                     showSearchResult.textContent = item.innerHTML;  
+                    arr3.push(item.textContent);
                 }
                 for(let y = 0; y < item.children.length; y++){
                     if(item.children[y].textContent.split(0).join(" ").search(newWord) !== -1){
                         item.children[y].style.background = "yellow"
                         item.children[y].style.color = "#0FF";
                         showSearchResult.style.cssText = "background:#EEE;color:#0FF;"
-                        showSearchResult.textContent = item.children[y].innerHTML
+                        showSearchResult.textContent = item.children[y].innerHTML;
+                        arr3.push(item.children[y]);
                     }
                     for(let x = 0; x < item.children[y].children.length; x++){
                         if(item.children[y].children[x].textContent.search(newWord) !== -1){
                             item.children[y].children[x].style.background = "yellow"
                             item.children[y].children[x].style.color = "#F0F";
                             showSearchResult.style.cssText = "background:#EEE;color:#F0F;"
-                            showSearchResult.textContent = item.children[y].children[x].innerHTML
+                            showSearchResult.textContent = item.children[y].children[x].innerHTML;
+                            arr3.push(item.children[y].children[x]);
                         }
                     }
                 }
             });
+            console.log(arr3.length);
         }else{
             return;
         }
