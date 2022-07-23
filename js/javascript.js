@@ -115,7 +115,7 @@ for(let i = 0; i < htmlCourses.length; i++){
     let htmlCourseItems = document.querySelectorAll(".html-items li");
     htmlCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = htmlCourses[index].toUpperCase();
-        courseItem.style.cssText = "font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "width:85%;font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear;"
     })
 }
 let cssCoursesList = document.querySelector(".css-items");
@@ -126,7 +126,7 @@ for(let i = 0; i < cssCourses.length; i++){
     let cssCourseItems = document.querySelectorAll(".css-items li");
     cssCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = cssCourses[index].toUpperCase();
-        courseItem.style.cssText = "font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
     })
 }
 let signUpBtn = document.querySelector(".sign-up-btn")
@@ -153,7 +153,9 @@ for(let h = 0; h < navigatorBtns.length; h++){
         e.preventDefault();
     })
 }
-
+navigatorBtns[2].addEventListener("click",(e)=>{
+    window.open("#contact")
+})
 //searchSection
 let searchSection = document.createElement("div");
 let searchBar = document.createElement("input");
@@ -200,7 +202,7 @@ navigatorBtns[3].onclick = ()=>{
                     showSearchResult.style.cssText = "background:#EEE;color:#FF0"
                     showSearchResult.textContent = item.innerHTML;  
                     
-                    arr3.push(item.textContent.substr(item.textContent.indexOf(searchBar.value),item.textContent.indexOf(searchBar.value)-1).trim());
+                    arr3.push(item.textContent.substr(item.textContent.indexOf(searchBar.value),item.textContent.indexOf(searchBar.value)-1));
                 }
                 for(let y = 0; y < item.children.length; y++){
                     if(item.children[y].textContent.split(0).join(" ").search(newWord) !== -1){
@@ -208,7 +210,7 @@ navigatorBtns[3].onclick = ()=>{
                         item.children[y].style.color = "#0FF";
                         showSearchResult.style.cssText = "background:#EEE;color:#0FF;"
                         showSearchResult.textContent = item.children[y].innerHTML;
-                        arr3.push(item.children[y].textContent.substr(item.children[y].textContent.indexOf(searchBar.value),item.children[y].textContent.indexOf(searchBar.value)-1).trim());
+                        arr3.push(item.children[y].textContent.substr(item.children[y].textContent.indexOf(searchBar.value),item.children[y].textContent.indexOf(searchBar.value)-1));
                     }
                     for(let x = 0; x < item.children[y].children.length; x++){
                         if(item.children[y].children[x].textContent.search(newWord) !== -1){
@@ -216,13 +218,13 @@ navigatorBtns[3].onclick = ()=>{
                             item.children[y].children[x].style.color = "#F0F";
                             showSearchResult.style.cssText = "background:#EEE;color:#F0F;"
                             showSearchResult.textContent = item.children[y].children[x].innerHTML;
-                            arr3.push(item.children[y].children[x].textContent.substr(item.children[y].children[x].textContent.indexOf(searchBar.value),item.children[y].children[x].textContent.indexOf(searchBar.value)-1).trim());
+                            arr3.push(item.children[y].children[x].textContent.substr(item.children[y].children[x].textContent.indexOf(searchBar.value),item.children[y].children[x].textContent.indexOf(searchBar.value)-1));
                         }
                     }
                 }
             });
             console.log(arr3.length);
-            console.log(arr3.trim())
+            console.log(arr3)
         }else{
             return;
         }
@@ -257,3 +259,39 @@ window.onscroll = ()=>{
         contactHeader.style.setProperty("--scaleSize","0")
     }
 }
+
+let responsiveNavBar;
+let responsiveBtn = document.querySelector(".responsive-btn");
+responsiveBtn.addEventListener("click",function(){
+    responsiveBtn.classList.toggle("show");
+    
+    if(responsiveBtn.classList.contains("show")){
+        responsiveNavBar = document.createElement("div");
+        let responsiveNavBarList = document.createElement("ul");
+        responsiveNavBar.classList.add("responsiveNavBar");
+        responsiveNavBarList.classList.add("responsiveNavBarList");
+        responsiveNavBarList.style.cssText = "list-style-type:none;text-align:center;";
+        document.body.appendChild(responsiveNavBar);
+        responsiveNavBar.appendChild(responsiveNavBarList);
+        setTimeout(()=>{
+            responsiveNavBar.classList.add("showResponsiveNavBar")
+        },80)
+        for(let y = 0; y <= navigatorBtns.length; y++){
+            let responsiveNavBarListItems = document.createElement('li');
+            responsiveNavBarList.appendChild(responsiveNavBarListItems);
+            responsiveNavBarListItems.classList.add("responsiveNavBarListItems");
+            responsiveNavBarListItems.style.cssText = "text-transform:uppercase;font-size:20px;font-family:Arial, sans-serif;padding:5px;margin-top:8px;";
+        }
+        let responsiveNavBarListItemsBtns = document.querySelectorAll(".responsiveNavBarListItems");
+        navigatorBtns.forEach((navBtn,navBtnIndex)=>{
+            responsiveNavBarListItemsBtns[navBtnIndex].textContent =  navBtn.textContent;
+            responsiveNavBarListItemsBtns[navBtnIndex].addEventListener("click",()=>{
+                navBtn.click();
+                responsiveNavBar.remove();
+            }) 
+        });
+    }else{
+        responsiveNavBar.remove()
+    }
+    
+})
