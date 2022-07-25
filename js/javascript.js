@@ -64,48 +64,27 @@ closeCourseSection.addEventListener("click",()=>{
 
 let htmlCourses = [
     "intro to html",
-    "body tag",
-    "head tag",
-    "meta tag",
-    "title tag",
-    "link tag",
-    "style tag",
-    "script tag",
-    "comment",
-    "header tag",
-    "heading tag",
-    "paragraph tag",
-    "div tag",
-    "anchors tag",
-    "semantic tag",
-    "table tag",
-    "lists tag",
-    "multimedia tag",
-    "form tag",
-    "global attributes",
-    "contenteditable"
+    "html tags",
+    "html attributes",
+    "html vs html5"
 ];
 let cssCourses = [
     "intro to css",
-    "font-size",
-    "font-weight",
-    "font-style",
-    "font-family",
-    "text-transform",
-    "letter-spacing",
-    "color",
-    "background-color",
-    "background-image",
-    "background-repeat",
-    "background-position",
-    "background-size",
-    "background-attachment",
-    "background-clip",
-    "background-origin",
-    "margin",
-    "padding",
-    "height",
-    "width"
+    "css refrences",
+    "css responsive",
+    "css3 refrences"
+];
+let javascriptCourses = [
+    "intro to javascript",
+    "javascript refrences",
+    "javsacript dom refrences",
+    "javsacript bom refrences"
+];
+let bootstrapCourses = [
+    "intro to bootstrap",
+    "bootstrap refrences",
+    "bootstrap forms",
+    "bootstrap grid"
 ];
 let htmlCoursesList = document.querySelector(".html-items");
 for(let i = 0; i < htmlCourses.length; i++){
@@ -115,7 +94,7 @@ for(let i = 0; i < htmlCourses.length; i++){
     let htmlCourseItems = document.querySelectorAll(".html-items li");
     htmlCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = htmlCourses[index].toUpperCase();
-        courseItem.style.cssText = "width:85%;font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear;"
+        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear;"
     })
 }
 let cssCoursesList = document.querySelector(".css-items");
@@ -126,9 +105,32 @@ for(let i = 0; i < cssCourses.length; i++){
     let cssCourseItems = document.querySelectorAll(".css-items li");
     cssCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = cssCourses[index].toUpperCase();
-        courseItem.style.cssText = "width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
     })
 }
+let javascriptCoursesList = document.querySelector(".js-items");
+for(let i = 0; i < javascriptCourses.length; i++){
+    let javascriptCoursesItems = document.createElement("li");
+    javascriptCoursesItems.classList.add("js-course-items");
+    javascriptCoursesList.appendChild(javascriptCoursesItems);
+    let javascriptCourseItems = document.querySelectorAll(".js-items li");
+    javascriptCourseItems.forEach((courseItem,index)=>{
+        courseItem.innerHTML = javascriptCourses[index].toUpperCase();
+        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+    })
+}
+let bootstrapCoursesList = document.querySelector(".bootstrap-items");
+for(let i = 0; i < bootstrapCourses.length; i++){
+    let bootstrapCoursesItems = document.createElement("li");
+    bootstrapCoursesItems.classList.add("bootstrap-course-items");
+    bootstrapCoursesList.appendChild(bootstrapCoursesItems);
+    let bootstrapCourseItems = document.querySelectorAll(".bootstrap-items li");
+    bootstrapCourseItems.forEach((courseItem,index)=>{
+        courseItem.innerHTML = bootstrapCourses[index].toUpperCase();
+        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+    })
+}
+
 let signUpBtn = document.querySelector(".sign-up-btn")
 let signUpForm = document.querySelector(".sign-up-form")
 let signInBtn = document.querySelector(".sign-in-btn")
