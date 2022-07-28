@@ -95,6 +95,13 @@ for(let i = 0; i < htmlCourses.length; i++){
     htmlCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = htmlCourses[index].toUpperCase();
         courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:15px;text-align:center;transition:.2s all linear;"
+        courseItem.addEventListener("click",()=>{
+            if(courseItem.parentElement.parentElement.classList.contains("html")){
+                let courseItemName = courseItem.textContent;
+                localStorage.setItem("courseName",courseItemName);
+                window.open("courses.html","_self");
+            }
+        })
     })
 }
 let cssCoursesList = document.querySelector(".css-items");
@@ -106,6 +113,13 @@ for(let i = 0; i < cssCourses.length; i++){
     cssCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = cssCourses[index].toUpperCase();
         courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+        courseItem.addEventListener("click",()=>{
+            if(courseItem.parentElement.parentElement.classList.contains("css")){
+                let courseItemName = courseItem.textContent;
+                localStorage.setItem("courseName",courseItemName);
+                window.open("courses.html","_self");
+            }
+        })
     })
 }
 let javascriptCoursesList = document.querySelector(".js-items");
@@ -117,6 +131,13 @@ for(let i = 0; i < javascriptCourses.length; i++){
     javascriptCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = javascriptCourses[index].toUpperCase();
         courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+        courseItem.addEventListener("click",()=>{
+            if(courseItem.parentElement.parentElement.classList.contains("javascript")){
+                let courseItemName = courseItem.textContent;
+                localStorage.setItem("courseName",courseItemName);
+                window.open("courses.html","_self");
+            }
+        })
     })
 }
 let bootstrapCoursesList = document.querySelector(".bootstrap-items");
@@ -127,7 +148,14 @@ for(let i = 0; i < bootstrapCourses.length; i++){
     let bootstrapCourseItems = document.querySelectorAll(".bootstrap-items li");
     bootstrapCourseItems.forEach((courseItem,index)=>{
         courseItem.innerHTML = bootstrapCourses[index].toUpperCase();
-        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear"
+        courseItem.style.cssText = "padding-bottom:10px;width:85%;font-weight:bold;font-size:14px;position:relative;color:#EEE;font-family:Arial,sans-serif;letter-spacing:2px;cursor:pointer;margin-top:18px;text-align:center;transition:.2s all linear";
+        courseItem.addEventListener("click",()=>{
+            if(courseItem.parentElement.parentElement.classList.contains("bootstrap")){
+                let courseItemName = courseItem.textContent;
+                localStorage.setItem("courseName",courseItemName);
+                window.open("courses.html","_self");
+            }
+        })
     })
 }
 
@@ -150,14 +178,12 @@ signInBtn.onclick = function(){
 }
 
 let navigatorBtns = document.querySelectorAll(".navBar-list li a");
-for(let h = 0; h < navigatorBtns.length; h++){
-    navigatorBtns[h].addEventListener("click",(e)=>{
-        e.preventDefault();
-    })
-}
-navigatorBtns[2].addEventListener("click",(e)=>{
-    window.open("#contact")
-})
+navigatorBtns[1].addEventListener("click",(e)=>{
+    e.preventDefault();
+});
+navigatorBtns[3].addEventListener("click",(e)=>{
+    e.preventDefault();
+});
 //searchSection
 let searchSection = document.createElement("div");
 let searchBar = document.createElement("input");
@@ -174,12 +200,11 @@ navigatorBtns[3].onclick = ()=>{
     searchBtn.innerHTML = "search <i class='fas fa-search'></i>";
     searchSectionClose.innerHTML = "<i class='fas fa-window-close'></i>";
 
-    searchSection.style.cssText = "overflow:auto;display:inline-block;text-align:center;position:fixed;z-index:3;background:#222222fc;left:0px;top:0px;height:98%;width:100%";
-    searchBar.style.cssText = "display:inline-block;margin:60px auto;width:470px;border-radius:2px;border:0px;padding:7px;outline:none;font-size: 19px;text-transform:uppercase";
+    searchSection.style.cssText = "overflow:auto;display:flex;flex-direction:column;align-items:center;text-align:center;position:fixed;z-index:3;background:#222222fc;left:0px;top:0px;height:98%;width:100%";
     searchBtn.style.cssText="background:rgb(10, 161, 226);color:#FFF;display:inline-block;margin:60px 10px;cursor:pointer;width:200px;border-radius:2px;border:0px;padding:7px;outline:none;font-size: 19px;text-transform:uppercase";
     searchSectionClose.style.cssText = "position:absolute;top:15px;right:30px;color:#EEE;font-size:30px;background:#222;cursor:pointer;";
 
-    
+    searchSection.classList.add("search-section")
 
     searchBtn.addEventListener("click",()=>{
         searchSection.remove();
@@ -296,4 +321,64 @@ responsiveBtn.addEventListener("click",function(){
         responsiveNavBar.remove()
     }
     
+});
+
+let childOne = document.querySelector(".child-no-1");
+let childTwo = document.querySelector(".child-no-2");
+let childThree = document.querySelector(".child-no-3");
+
+let childOneListItems = childOne.children[1].children;
+for(let i = 0; i < childOneListItems.length; i++){
+    childOneListItems[i].addEventListener("click",()=>{
+        let childOneCourses = childOneListItems[i].textContent;
+        localStorage.setItem("childOneCourses",childOneCourses);
+        window.open("courses.html","_self");
+    })
+}
+/*
+    applications Links:-
+    weather:- https://mostafamohamed123456.github.io/Weather/
+    date-time:-
+    to-do-list:-
+    memory-game:-https://mostafamohamed123456.github.io/Memory-Game/
+*/
+let childTwoListItems = childTwo.children[1].children;
+console.log(childTwoListItems)
+for(let i = 0; i < childTwoListItems.length; i++){
+    childTwoListItems[i].addEventListener("click",()=>{
+        if(childTwoListItems[i].classList.contains("weather")){
+            window.open("https://mostafamohamed123456.github.io/Weather/","_blank")
+        }else if(childTwoListItems[i].classList.contains("memory-game")){
+            window.open("https://mostafamohamed123456.github.io/Memory-Game/","_blank")
+        }else if(childTwoListItems[i].classList.contains("to-do-list")){
+            window.open("https://mostafamohamed123456.github.io/Memory-Game/","_blank")
+        }else if(childTwoListItems[i].classList.contains("date-time")){
+            window.open("https://mostafamohamed123456.github.io/Memory-Game/","_blank")
+        }
+    })
+}
+// let childThreeListItems = childThree.children[1].children;
+// for(let i = 0; i < childOneListItems.length; i++){
+//     childOneListItems[i].addEventListener("click",()=>{
+//         let childOneCourses = childOneListItems[i].textContent;
+//         localStorage.setItem("childOneCourses",childOneCourses);
+//         window.open("courses.html","_self");
+//     })
+// }
+
+let contactSection = document.querySelector(".contact-section");
+contactSection.children[1].addEventListener("click",()=>{
+    if(contactSection.children[1].textContent.split(0).join("").search(/facebook/i) !== -1){
+        window.open("https://www.facebook.com/mostafa.abosaba/");
+    }
+})
+contactSection.children[2].addEventListener("click",()=>{
+    if(contactSection.children[2].textContent.split(0).join("").search(/twitter/i) !== -1){
+        window.open("https://twitter.com/mostafa74459923");
+    }
+})
+contactSection.children[3].addEventListener("click",()=>{
+    if(contactSection.children[3].textContent.split(0).join("").search(/github/i) !== -1){
+        window.open("https://github.com/mostafamohamed123456");
+    }
 })

@@ -427,6 +427,17 @@ nav .navBar-list li:hover::after{
 .contact-section .sign-in-form.hide-forms{
     display: none;
 }
+.search-section input[type='search']{
+    display:inline-block;
+    margin:63px auto 0px auto;
+    width:470px;
+    border-radius:2px;
+    border:0px;
+    padding:7px;
+    outline:none;
+    font-size: 19px;
+    text-transform:uppercase;
+}
 @media screen and (min-width:421px) and (max-width:768px){
     .parent-section > div{
         display:inline-block;
@@ -511,6 +522,9 @@ nav .navBar-list li:hover::after{
     input[type="search"]{
         width:100%;
     }
+    .search-section input[type='search']{
+        width:280px;
+    }
 }
 
 .responsiveNavBar{
@@ -525,3 +539,4 @@ nav .navBar-list li:hover::after{
 .responsiveNavBar.showResponsiveNavBar{
     right: 0;
 }
+
